@@ -703,7 +703,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <a href="#top" className="brand">
-              <img src="assets/logo.png" alt="ArgosIA" className="logo-img" style={{ height: 32 }} />
+              <img src="assets/logo.png" alt="ArgosIA" className="logo-img" style={{ height: 80 }} />
             </a>
             <p className="footer-desc">
               Machine learning aplicado al control de calidad en línea.
@@ -724,18 +724,6 @@ function Footer() {
             <h4>Casos</h4>
             <ul>
               <li><a href="#caso">La Virginia · café</a></li>
-              <li><a href="#">Más casos</a></li>
-              <li><a href="#">Whitepapers</a></li>
-              <li><a href="#">Resultados</a></li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4>Empresa</h4>
-            <ul>
-              <li><a href="#">Nosotros</a></li>
-              <li><a href="#">Carreras</a></li>
-              <li><a href="#">Contacto</a></li>
-              <li><a href="#">Estado · ArgosIA</a></li>
             </ul>
           </div>
         </div>

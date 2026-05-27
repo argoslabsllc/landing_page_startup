@@ -290,17 +290,19 @@ a[href="https://unicorn.studio?utm_source=public-url"] {
 }
 
 .hero-eyebrow {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 4px 10px 4px 4px;
+  gap: 12px;
+  padding: 10px 14px;
   border: 1px solid var(--border);
-  border-radius: 100px;
+  border-radius: 20px;
   background: var(--surface);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-2);
   margin-bottom: 20px;
   font-weight: 500;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 .hero-eyebrow .pill {
   display: inline-flex;
@@ -375,7 +377,26 @@ a[href="https://unicorn.studio?utm_source=public-url"] {
 
 @media (max-width: 680px) {
   .hero-title { font-size: clamp(26px, 5vw, 48px); }
-  .hero-eyebrow { font-size: clamp(12px, 2.5vw, 14px); }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font-size: 0;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow .pill {
+    font-size: 11px;
+    padding: 6px 14px;
+    white-space: nowrap;
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    background: var(--surface);
+  }
 }
 
 /* Hero capsule visualizer */
