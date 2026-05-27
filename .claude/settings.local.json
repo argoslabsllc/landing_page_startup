@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Feli\\\\Desktop\\\\evolutia local\\\\chatbot_telegram\\\\dashboard\\\\app\" -Recurse -Include \"*.css\", \"*.scss\", \"*.tsx\", \"*.jsx\" -Force)",
+      "Bash(Select-Object -First 20)",
+      "PowerShell(ls \"c:\\\\Users\\\\Feli\\\\Desktop\\\\evolutia local\\\\\")"
+    ]
+  }
+}
