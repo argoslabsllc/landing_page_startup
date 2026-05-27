@@ -23,7 +23,7 @@ function Header() {
     <header className={"header " + (scrolled ? "is-scrolled" : "")}>
       <div className="wrap header__inner">
         <a href="#top" className="brand" aria-label="ArgosIA">
-          <img src="assets/logo.png" alt="ArgosIA" className="logo-img" style={{ height: 28 }} />
+          <img src="assets/logo.png" alt="ArgosIA" className="logo-img" style={{ height: 40 }} />
         </a>
         <nav className={"nav " + (menuOpen ? "is-open" : "")}>
           {links.map(l => (

@@ -17,9 +17,20 @@
 <div id="root"></div>
 <script src="data.js"></script>
 <script type="text/babel" data-presets="env,react" src="primitives.jsx"></script>
+<script type="text/babel" data-presets="env,react" src="loading-screen.jsx"></script>
 <script type="text/babel" data-presets="env,react" src="hero.jsx"></script>
 <script type="text/babel" data-presets="env,react" src="sections.jsx"></script>
 <script type="text/babel" data-presets="env,react" src="case-study.jsx"></script>
 <script type="text/babel" data-presets="env,react" src="app.jsx"></script>
+<script type="text/babel">
+  const rootElement = document.getElementById('root');
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <>
+      <LoadingScreen />
+      <App />
+    </>
+  );
+</script>
 </body>
 </html>

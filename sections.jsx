@@ -703,7 +703,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <a href="#top" className="brand">
-              <img src="assets/logo.png" alt="ArgosIA" className="logo-img" style={{ height: 28 }} />
+              <img src="assets/logo.png" alt="ArgosIA" className="logo-img" style={{ height: 32 }} />
             </a>
             <p className="footer-desc">
               Machine learning aplicado al control de calidad en línea.
