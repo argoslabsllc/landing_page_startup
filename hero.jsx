@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* virgIA · Header + Hero (versión generalizada con product switcher) */
+/* ArgosIA · Header + Hero (versión generalizada con product switcher) */
 
 function Header() {
   const [scrolled, setScrolled] = React.useState(false);
@@ -22,11 +22,8 @@ function Header() {
   return (
     <header className={"header " + (scrolled ? "is-scrolled" : "")}>
       <div className="wrap header__inner">
-        <a href="#top" className="brand" aria-label="virgIA">
-          <span className="brand-mark">v</span>
-          <span>virg</span>
-          <span className="brand-tail">IA</span>
-          <span className="brand-tm">TM</span>
+        <a href="#top" className="brand" aria-label="ArgosIA">
+          <img src="assets/logo.png" alt="ArgosIA" className="logo-img" style={{ height: 28 }} />
         </a>
         <nav className={"nav " + (menuOpen ? "is-open" : "")}>
           {links.map(l => (
@@ -78,7 +75,7 @@ const HERO_PRODUCTS = [
       { lbl: "EJE 3 · Orden",  val: "±0.4° · ok" },
     ],
     code: "C-001143 · 0.41s",
-    meta: ["línea / A", "producto / Cápsula Intenso", "modelo / vIA-vision · v3.4"],
+    meta: ["línea / A", "producto / Cápsula Intenso", "modelo / ArgosIA-vision · v3.4"],
     palette: ["body-coffee-a","body-coffee-b","body-coffee-c","body-coffee-d"],
     shape: "capsule",
   },
@@ -97,7 +94,7 @@ const HERO_PRODUCTS = [
       { lbl: "EJE 4 · Lote",   val: "Impresión OK" },
     ],
     code: "B-042881 · 0.38s",
-    meta: ["línea / 02", "producto / Botella PET 500ml", "modelo / vIA-vision · v2.7"],
+    meta: ["línea / 02", "producto / Botella PET 500ml", "modelo / ArgosIA-vision · v2.7"],
     palette: ["body-bottle-a","body-bottle-b","body-bottle-c","body-bottle-d"],
     shape: "bottle",
   },
@@ -117,7 +114,7 @@ const HERO_PRODUCTS = [
       { lbl: "EJE 5 · Trazador", val: "Lote leído" },
     ],
     code: "F-090114 · 0.36s",
-    meta: ["línea / 04", "producto / Blíster 10×1", "modelo / vIA-vision · v4.1"],
+    meta: ["línea / 04", "producto / Blíster 10×1", "modelo / ArgosIA-vision · v4.1"],
     palette: ["body-blister-a","body-blister-b","body-blister-c","body-blister-d"],
     shape: "blister",
   },
@@ -134,7 +131,7 @@ const HERO_PRODUCTS = [
       { lbl: "EJE 2 · Defectos",  val: "0 manchas · ok" },
     ],
     code: "M-771204 · 0.29s",
-    meta: ["línea / packing", "producto / Manzana Royal Gala", "modelo / vIA-vision · v1.9"],
+    meta: ["línea / packing", "producto / Manzana Royal Gala", "modelo / ArgosIA-vision · v1.9"],
     palette: ["body-fruit-a","body-fruit-b","body-fruit-c","body-fruit-d"],
     shape: "fruit",
   },
@@ -189,7 +186,7 @@ function ProductStage({ product }) {
   return (
     <>
       <div className="capsule-stage-head">
-        <span>virgIA · inferencia en línea</span>
+        <span>ArgosIA · inferencia en línea</span>
         <span className="live">LIVE</span>
       </div>
 
@@ -337,7 +334,7 @@ function Hero() {
         <div>
           <Reveal>
             <div className="hero-eyebrow">
-              <span className="pill">vIA · ML para industria</span>
+              <span className="pill">ArgosIA · ML para industria</span>
               Inferencia en planta · adaptable a cualquier producto
             </div>
           </Reveal>
@@ -352,7 +349,7 @@ function Hero() {
 
           <Reveal delay={240}>
             <p className="hero-sub">
-              virgIA entrena modelos de visión por computador sobre tu producto
+              ArgosIA entrena modelos de visión por computador sobre tu producto
               y los despliega en piso de planta. Decisión sub-segundo,
               auditable, integrada con tu PLC. Cambias el producto, entrenamos
               de nuevo; el panel queda igual.

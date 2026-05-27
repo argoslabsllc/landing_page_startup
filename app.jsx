@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* virgIA · App root */
+/* ArgosIA · App root */
 
 function App() {
   return (

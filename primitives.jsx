@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* virgIA · Primitives: Reveal, CountUp, Icons */
+/* ArgosIA · Primitives: Reveal, CountUp, Icons */
 
 const { useState, useEffect, useRef, useMemo, useLayoutEffect } = React;
 

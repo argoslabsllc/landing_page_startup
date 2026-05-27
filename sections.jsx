@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* virgIA · Marquee, Capabilities, Products grid, Pipeline, Process, Stack, Testimonial, CTA, Footer */
+/* ArgosIA · Marquee, Capabilities, Products grid, Pipeline, Process, Stack, Testimonial, CTA, Footer */
 
 /* ---------- KPI marquee ---------- */
 function MetricsMarquee() {
@@ -142,7 +142,7 @@ function ProductsSection() {
         </Reveal>
         <Reveal delay={160}>
           <p className="section-lede">
-            virgIA no es un detector pre-entrenado. Entrenamos los modelos sobre
+            ArgosIA no es un detector pre-entrenado. Entrenamos los modelos sobre
             tu línea, definimos contigo los <em>ejes de validación</em> que
             importan para tu QC, y el panel del operario se mantiene idéntico.
             Cambias de SKU, se reentrena; el procedimiento no cambia.
@@ -198,7 +198,7 @@ function Process() {
     {
       title: "Inferencia multi-eje",
       body: "Definimos contigo los ejes que importan: pueden ser 2, 3, 5 o los que tu QC requiera. Cada modelo corre en paralelo y responde con un veredicto legible.",
-      detail: "vIA.infer({ axes: N })",
+      detail: "ArgosIA.infer({ axes: N })",
     },
     {
       title: "Validación",
@@ -474,7 +474,7 @@ function PipelineSVG() {
   const nodes = [
     { id: "cam",    label: "CÁMARA",     icon: "📷", x: 8 },
     { id: "pre",    label: "PREPROC",    icon: "▦",  x: 28 },
-    { id: "model",  label: "MODELO vIA", icon: "◈", x: 50, model: true },
+    { id: "model",  label: "MODELO ArgosIA", icon: "◈", x: 50, model: true },
     { id: "dec",    label: "DECISIÓN",   icon: "◉",  x: 72 },
     { id: "audit",  label: "AUDIT LOG",  icon: "≡",  x: 92 },
   ];
@@ -623,7 +623,7 @@ function Stack() {
           <Reveal className="kpi"><div className="kpi-num brand"><CountUp to={420} duration={1600} /><span className="unit">ms p95</span></div><div className="kpi-label">Latencia por unidad</div></Reveal>
           <Reveal className="kpi" delay={80}><div className="kpi-num"><CountUp to={99.4} decimals={1} /><span className="unit">%</span></div><div className="kpi-label">Uptime · últimos 90 días</div></Reveal>
           <Reveal className="kpi" delay={160}><div className="kpi-num"><CountUp to={18} /></div><div className="kpi-label">Clases de defecto soportadas</div></Reveal>
-          <Reveal className="kpi" delay={240}><div className="kpi-num"><CountUp to={1.872} decimals={3} /><span className="unit">h</span></div><div className="kpi-label">Horas sin downtime · vIA</div></Reveal>
+          <Reveal className="kpi" delay={240}><div className="kpi-num"><CountUp to={1.872} decimals={3} /><span className="unit">h</span></div><div className="kpi-label">Horas sin downtime · ArgosIA</div></Reveal>
         </div>
       </div>
     </section>
@@ -703,10 +703,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <a href="#top" className="brand">
-              <span className="brand-mark">v</span>
-              <span>virg</span>
-              <span className="brand-tail">IA</span>
-              <span className="brand-tm">TM</span>
+              <img src="assets/logo.png" alt="ArgosIA" className="logo-img" style={{ height: 28 }} />
             </a>
             <p className="footer-desc">
               Machine learning aplicado al control de calidad en línea.
@@ -738,12 +735,12 @@ function Footer() {
               <li><a href="#">Nosotros</a></li>
               <li><a href="#">Carreras</a></li>
               <li><a href="#">Contacto</a></li>
-              <li><a href="#">Estado · vIA</a></li>
+              <li><a href="#">Estado · ArgosIA</a></li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 virgIA · Todos los derechos reservados</span>
+          <span>© 2026 ArgosIA · Todos los derechos reservados</span>
           <span className="footer-status">Todos los sistemas operativos</span>
         </div>
       </div>

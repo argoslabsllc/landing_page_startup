@@ -1,5 +1,5 @@
 /* ============================================================
-   virgIA · Landing
+   ArgosIA · Landing
    Tema: dark, técnico, ML/industrial. Estética inspirada en
    landing modernas de plataforma (densidad, mono + sans bold,
    numeración, tickers, microanimación).
@@ -22,7 +22,7 @@
   --muted:     #76767f;
   --dim:       #4f4f59;
 
-  /* Brand virgIA — palette */
+  /* Brand ArgosIA — palette */
   --brand:     #ce203c;
   --brand-2:   #dd6564;
   --brand-soft: rgba(206,32,60,0.12);
@@ -371,6 +371,11 @@ a[href="https://unicorn.studio?utm_source=public-url"] {
 }
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px) {
+  .hero-title { font-size: clamp(26px, 5vw, 48px); }
+  .hero-eyebrow { font-size: clamp(12px, 2.5vw, 14px); }
 }
 
 /* Hero capsule visualizer */
@@ -1114,7 +1119,7 @@ a[href="https://unicorn.studio?utm_source=public-url"] {
 .cta::before {
   content: ""; position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 700px 400px at 50% 50%, rgba(8,69,148,0.14), transparent 70%);
+    radial-gradient(ellipse 700px 400px at 50% 50%, rgba(206,32,60,0.14), transparent 70%);
   pointer-events: none;
 }
 .cta h2 {
