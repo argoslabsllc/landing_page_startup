@@ -629,7 +629,7 @@ function Stack() {
           <Reveal className="kpi"><div className="kpi-num brand"><CountUp to={420} duration={1600} /><span className="unit">ms p95</span></div><div className="kpi-label">Latencia por unidad</div></Reveal>
           <Reveal className="kpi" delay={80}><div className="kpi-num"><CountUp to={99.4} decimals={1} /><span className="unit">%</span></div><div className="kpi-label">Uptime · últimos 90 días</div></Reveal>
           <Reveal className="kpi" delay={160}><div className="kpi-num"><CountUp to={18} /></div><div className="kpi-label">Clases de defecto soportadas</div></Reveal>
-          <Reveal className="kpi" delay={240}><div className="kpi-num"><CountUp to={1.872} decimals={3} /><span className="unit">h</span></div><div className="kpi-label">Horas sin downtime · ArgosIA</div></Reveal>
+          <Reveal className="kpi" delay={240}><div className="kpi-num"><CountUp to={1872} /><span className="unit">h</span></div><div className="kpi-label">Horas sin downtime · ArgosIA</div></Reveal>
         </div>
       </div>
     </section>
@@ -718,7 +718,7 @@ function Footer() {
             </p>
           </div>
           <div className="footer-col">
-            <h4>Producto</h4>
+            <h3>Producto</h3>
             <ul>
               <li><a href="#capacidades">Capacidades</a></li>
               <li><a href="#productos">Productos</a></li>
@@ -727,7 +727,7 @@ function Footer() {
             </ul>
           </div>
           <div className="footer-col">
-            <h4>Casos</h4>
+            <h3>Casos</h3>
             <ul>
               <li><a href="#caso">La Virginia · café</a></li>
             </ul>

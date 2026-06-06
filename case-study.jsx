@@ -50,7 +50,7 @@ function LiveFeed() {
         <span className="title">la-virginia · panel · línea A</span>
         <span className="live">EN VIVO</span>
       </div>
-      <ul className="feed">
+      <ul className="feed" aria-live="polite" aria-relevant="additions" aria-atomic="false">
         {feed.map((it, i) => (
           <li key={it.n + i} className={"feed-item " + it.status + (it.isNew && i === 0 ? " new" : "")}>
             <span className="feed-time">{it.t}</span>
