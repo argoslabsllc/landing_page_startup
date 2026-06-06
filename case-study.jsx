@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* virgIA · Caso de éxito · La Virginia */
+/* ArgosIA · Caso de éxito · La Virginia */
 
 function LiveFeed() {
   const base = window.LV_DATA.recent;
@@ -143,7 +143,7 @@ function CaseStudy() {
               <p className="lv-quote" style={{ marginTop: 24 }}>
                 Para La Virginia definimos <em>tres ejes de validación</em>:
                 empaquetado, cápsula y orden de bandeja. Es la configuración
-                específica de este caso — virgIA se adapta al número y tipo de
+                específica de este caso — ArgosIA se adapta al número y tipo de
                 ejes que tu producto requiera.
               </p>
             </div>
@@ -222,7 +222,7 @@ function CaseStudy() {
               foot="aprobación medida: 83 %"
             />
             <BottomCard
-              tag="AHORA · CON vIA"
+              tag="AHORA · CON ArgosIA"
               title="Validación en 3 ejes"
               body="Cada cápsula es inspeccionada en empaquetado, forma y orden. El operario decide solo ante duda real."
               foot="aprobación medida: 95 %"

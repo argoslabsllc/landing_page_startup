@@ -4,6 +4,7 @@
 function Header() {
   const [scrolled, setScrolled] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [activeId, setActiveId] = React.useState("");
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -19,15 +20,40 @@ function Header() {
     { id: "stack",       label: "Stack" },
   ];
 
+  // Scrollspy: highlight the nav link for the section currently in view
+  React.useEffect(() => {
+    const sections = links
+      .map(l => document.getElementById(l.id))
+      .filter(Boolean);
+    if (!sections.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActiveId(visible[0].target.id);
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.25, 0.5] }
+    );
+    sections.forEach(s => io.observe(s));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <header className={"header " + (scrolled ? "is-scrolled" : "")}>
       <div className="wrap header__inner">
-        <a href="#top" className="brand" aria-label="ArgosIA">
-          <img src="assets/logo.png" alt="ArgosIA" className="logo-img" style={{ height: 80 }} />
+        <a href="#top" className="brand" aria-label="ArgosIA · inicio">
+          <img src="assets/logo.png" alt="ArgosIA" className="logo-img" />
         </a>
-        <nav className={"nav " + (menuOpen ? "is-open" : "")}>
+        <nav className={"nav " + (menuOpen ? "is-open" : "")} aria-label="Navegación principal">
           {links.map(l => (
-            <a key={l.id} href={"#" + l.id} onClick={() => setMenuOpen(false)}>{l.label}</a>
+            <a
+              key={l.id}
+              href={"#" + l.id}
+              onClick={() => setMenuOpen(false)}
+              className={activeId === l.id ? "is-active" : ""}
+              aria-current={activeId === l.id ? "true" : undefined}
+            >{l.label}</a>
           ))}
         </nav>
         <div className="header-cta">
@@ -49,10 +75,15 @@ function Header() {
             SISTEMA EN PRODUCCIÓN
           </span>
         </div>
-        <button className={"menu-toggle " + (menuOpen ? "is-open" : "")} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button
+          className={"menu-toggle " + (menuOpen ? "is-open" : "")}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={menuOpen}
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </button>
       </div>
     </header>
@@ -256,8 +287,10 @@ function ProductStageContainer() {
             key={p.id}
             className={"prod-tab " + (p.id === active.id ? "is-on" : "")}
             onClick={() => setActive(p)}
+            aria-pressed={p.id === active.id}
+            aria-label={"Ver " + p.name}
           >
-            {p.icon}
+            <span aria-hidden="true">{p.icon}</span>
             <span>{p.short.toUpperCase()}</span>
           </button>
         ))}
@@ -329,7 +362,7 @@ function Hero() {
 
   return (
     <section className="hero" id="top">
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, width: "100%", height: "100%" }} data-us-project="iy52WMLmbblvqYmBu4oH"></div>
+      <div aria-hidden="true" style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, width: "100%", height: "100%" }} data-us-project="iy52WMLmbblvqYmBu4oH"></div>
       <div className="wrap hero-grid" style={{ position: "relative", zIndex: 1 }}>
         <div>
           <Reveal>

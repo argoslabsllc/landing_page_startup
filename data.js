@@ -1,4 +1,4 @@
-/* virgIA · Datos derivados del panel La Virginia (3 ejes) */
+/* ArgosIA · Datos derivados del panel La Virginia (3 ejes) */
 
 window.LV_DATA = {
   shift: {
@@ -53,7 +53,7 @@ window.LV_DATA = {
   ],
 };
 
-/* Métricas agregadas virgIA para tickers */
+/* Métricas agregadas ArgosIA para tickers */
 window.VIRGIA_METRICS = [
   { label: "cápsulas inspeccionadas / día",  value: "1.143" },
   { label: "ejes de validación en paralelo", value: "3" },

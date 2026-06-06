@@ -19,8 +19,8 @@
   /* Text */
   --text:      #ededf2;
   --text-2:    #c1c1cc;
-  --muted:     #76767f;
-  --dim:       #4f4f59;
+  --muted:     #8a8a95;
+  --dim:       #595963;
 
   /* Brand ArgosIA — palette */
   --brand:     #ce203c;
@@ -66,17 +66,50 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   background:
-    radial-gradient(circle 700px at 15% 25%, rgba(206,32,60,0.50), transparent 60%),
-    radial-gradient(circle 650px at 85% 40%, rgba(206,32,60,0.50), transparent 65%),
-    radial-gradient(circle 750px at 50% 70%, rgba(206,32,60,0.45), transparent 70%),
-    radial-gradient(circle 800px at 20% 80%, rgba(206,32,60,0.40), transparent 75%),
-    radial-gradient(circle 600px at 75% 15%, rgba(206,32,60,0.45), transparent 70%),
+    radial-gradient(circle 620px at 50% -8%, rgba(206,32,60,0.12), transparent 62%),
+    radial-gradient(circle 880px at 88% 8%, rgba(206,32,60,0.07), transparent 68%),
+    radial-gradient(circle 820px at 8% 100%, rgba(206,32,60,0.05), transparent 70%),
     var(--bg);
+  background-attachment: fixed;
 }
 
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 img, svg { display: block; max-width: 100%; }
+
+/* ---------- Accessibility ---------- */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+/* Header is fixed → keep anchored sections clear of it */
+[id] { scroll-margin-top: 96px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px; top: -60px;
+  z-index: 200;
+  padding: 10px 16px;
+  background: var(--brand);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: top 0.18s ease;
+}
+.skip-link:focus { top: 16px; }
 
 /* ---------- Grain ---------- */
 body::before {
@@ -181,7 +214,7 @@ body::before {
   border-radius: 7px;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--brand) 0%, #7cc01f 100%);
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
   color: #0a0a0c;
   font-weight: 800;
   font-size: 13px;
@@ -190,6 +223,16 @@ body::before {
   box-shadow: 0 0 0 1px var(--brand-line), 0 6px 18px -6px var(--brand-glow);
 }
 .brand-tail { color: var(--brand); }
+.logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+.footer .logo-img { height: 48px; }
+@media (max-width: 640px) {
+  .logo-img { height: 30px; }
+  .footer .logo-img { height: 40px; }
+}
 .brand-tm {
   font-family: var(--mono);
   font-size: 9px;
@@ -211,6 +254,15 @@ body::before {
 }
 .nav a:hover { color: var(--text); }
 .nav a.is-active { color: var(--brand); }
+.nav a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 2px;
+  background: var(--brand);
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--brand-glow);
+}
 
 .header-cta { display: flex; align-items: center; gap: 10px; }
 
@@ -611,8 +663,8 @@ a[href="https://unicorn.studio?utm_source=public-url"] {
 .lv-bg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle 700px at 15% 30%, rgba(206,32,60,0.50), transparent 60%),
-    radial-gradient(circle 600px at 85% 70%, rgba(206,32,60,0.45), transparent 60%);
+    radial-gradient(circle 680px at 12% 22%, rgba(3,78,162,0.10), transparent 62%),
+    radial-gradient(circle 620px at 88% 78%, rgba(206,32,60,0.06), transparent 64%);
   pointer-events: none;
 }
 .lv-head {
@@ -1101,7 +1153,7 @@ a[href="https://unicorn.studio?utm_source=public-url"] {
 .testi-avatar {
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand), #7cc01f);
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
   display: flex; align-items: center; justify-content: center;
   color: var(--bg);
   font-weight: 700;
@@ -1661,4 +1713,20 @@ a[href="https://unicorn.studio?utm_source=public-url"] {
   .loading-bar {
     width: 150px;
   }
+}
+
+/* ============================================================
+   Reduced motion — respect user preference (WCAG 2.3.3)
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Keep scroll-reveal content visible without the transform */
+  .reveal { opacity: 1 !important; transform: none !important; }
 }
