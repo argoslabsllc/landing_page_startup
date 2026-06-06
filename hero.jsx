@@ -13,11 +13,12 @@ function Header() {
   }, []);
 
   const links = [
-    { id: "capacidades", label: "Capacidades" },
-    { id: "productos",   label: "Productos" },
-    { id: "como",        label: "Cómo funciona" },
-    { id: "caso",        label: "Caso La Virginia" },
-    { id: "stack",       label: "Stack" },
+    { id: "servicios",        label: "Servicios" },
+    { id: "como-trabajamos",  label: "Cómo trabajamos" },
+    { id: "caso",             label: "Caso de éxito" },
+    { id: "stack",            label: "Tecnología" },
+    { id: "equipo",           label: "Equipo" },
+    { id: "planes",           label: "Planes" },
   ];
 
   // Scrollspy: highlight the nav link for the section currently in view
@@ -375,35 +376,34 @@ function Hero() {
         <div>
           <Reveal>
             <div className="hero-eyebrow">
-              <span className="pill">ArgosIA · ML para industria</span>
-              Inferencia en planta · adaptable a cualquier producto
+              <span className="pill">Argos Labs · IA Industrial</span>
+              Consultoría, ingeniería e integración llave en mano
             </div>
           </Reveal>
 
           <Reveal delay={120}>
             <h1 className="hero-title">
-              Calidad<br/>
-              que se <em>decide</em><br/>
-              en la <span className="stroke">línea.</span>
+              IA Industrial<br/>
+              diseñada para<br/>
+              tu <span className="stroke">planta.</span>
             </h1>
           </Reveal>
 
           <Reveal delay={240}>
             <p className="hero-sub">
-              ArgosIA entrena modelos de visión por computador sobre tu producto
-              y los despliega en piso de planta. Decisión sub-segundo,
-              auditable, integrada con tu PLC. Cambias el producto, entrenamos
-              de nuevo; el panel queda igual.
+              Diseñamos, entrenamos e integramos soluciones de visión artificial
+              y analítica predictiva a la medida de tu proceso. Conectamos tus cámaras,
+              sensores y PLCs on-premise, con soporte local constante.
             </p>
           </Reveal>
 
           <Reveal delay={360}>
             <div className="hero-cta">
-              <a href="#caso" className="btn btn--brand btn--lg">
-                Ver caso La Virginia <Icon.Arrow />
+              <a href="#servicios" className="btn btn--brand btn--lg">
+                Nuestros Servicios <Icon.Arrow />
               </a>
-              <a href="#productos" className="btn btn--outline btn--lg">
-                Productos soportados
+              <a href="#caso" className="btn btn--outline btn--lg">
+                Caso de éxito
               </a>
             </div>
           </Reveal>

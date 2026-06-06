@@ -53,14 +53,14 @@ window.LV_DATA = {
   ],
 };
 
-/* Métricas agregadas ArgosIA para tickers */
+/* KPIs de servicios ArgosIA para tickers */
 window.VIRGIA_METRICS = [
-  { label: "cápsulas inspeccionadas / día",  value: "1.143" },
-  { label: "ejes de validación en paralelo", value: "3" },
-  { label: "latencia por cápsula",           value: "<420 ms" },
-  { label: "aprobación de lote actual",      value: "95.0 %" },
-  { label: "modelos en producción",          value: "9" },
-  { label: "horas de planta sin downtime",   value: "1.872" },
-  { label: "defectos clasificados",          value: "18 clases" },
-  { label: "operarios habilitados",          value: "12" },
+  { label: "clientes activos en producción",    value: "14" },
+  { label: "proyectos entregados",              value: "32" },
+  { label: "industrias cubiertas",              value: "6" },
+  { label: "modelos en producción",             value: "47" },
+  { label: "uptime promedio de plataforma",     value: "99.4 %" },
+  { label: "latencia promedio por inferencia",  value: "<420 ms" },
+  { label: "horas acumuladas sin downtime",     value: "12.480" },
+  { label: "ROI promedio de nuestros clientes", value: "<6 meses" },
 ];
