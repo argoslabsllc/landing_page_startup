@@ -18,7 +18,6 @@ function Header() {
     { id: "caso",             label: "Caso de éxito" },
     { id: "stack",            label: "Tecnología" },
     { id: "equipo",           label: "Equipo" },
-    { id: "planes",           label: "Planes" },
   ];
 
   // Scrollspy: highlight the nav link for the section currently in view
@@ -107,7 +106,7 @@ const HERO_PRODUCTS = [
       { lbl: "EJE 3 · Orden",  val: "±0.4° · ok" },
     ],
     code: "C-001143 · 0.41s",
-    meta: ["línea / A", "producto / Cápsula Intenso", "modelo / ArgosIA-vision · v3.4"],
+    meta: ["origen / Línea A", "SKU / Cápsula Café", "tolerancia / ±0.5 mm"],
     palette: ["body-coffee-a","body-coffee-b","body-coffee-c","body-coffee-d"],
     shape: "capsule",
   },
@@ -126,7 +125,7 @@ const HERO_PRODUCTS = [
       { lbl: "EJE 4 · Lote",   val: "Impresión OK" },
     ],
     code: "B-042881 · 0.38s",
-    meta: ["línea / 02", "producto / Botella PET 500ml", "modelo / ArgosIA-vision · v2.7"],
+    meta: ["origen / Línea 02", "SKU / Botella PET", "tolerancia / Nivel ±2 ml"],
     palette: ["body-bottle-a","body-bottle-b","body-bottle-c","body-bottle-d"],
     shape: "bottle",
   },
@@ -146,7 +145,7 @@ const HERO_PRODUCTS = [
       { lbl: "EJE 5 · Trazador", val: "Lote leído" },
     ],
     code: "F-090114 · 0.36s",
-    meta: ["línea / 04", "producto / Blíster 10×1", "modelo / ArgosIA-vision · v4.1"],
+    meta: ["origen / Línea 04", "SKU / Blíster Blister", "tolerancia / Llenado 100%"],
     palette: ["body-blister-a","body-blister-b","body-blister-c","body-blister-d"],
     shape: "blister",
   },
@@ -163,7 +162,7 @@ const HERO_PRODUCTS = [
       { lbl: "EJE 2 · Defectos",  val: "0 manchas · ok" },
     ],
     code: "M-771204 · 0.29s",
-    meta: ["línea / packing", "producto / Manzana Royal Gala", "modelo / ArgosIA-vision · v1.9"],
+    meta: ["origen / Packing", "SKU / Manzana Gala", "tolerancia / Calibre >70 mm"],
     palette: ["body-fruit-a","body-fruit-b","body-fruit-c","body-fruit-d"],
     shape: "fruit",
   },
@@ -212,14 +211,14 @@ function ProductStage({ product }) {
   const items = React.useMemo(() => Array.from({ length: N }, (_, i) => ({
     id: i,
     palette: product.palette[i % product.palette.length],
-    delay: -(i * (12 / N)),
+    delay: -(i * (24 / N)),
   })), [product.id]);
 
   return (
     <>
       <div className="capsule-stage-head">
-        <span>ArgosIA · inferencia en línea</span>
-        <span className="live">LIVE</span>
+        <span>CÁMARA 01 · ADQUISICIÓN DE IMAGEN</span>
+        <span className="live" style={{ color: "var(--ok)", textShadow: "0 0 6px var(--ok)" }}>ONLINE</span>
       </div>
 
       <div className="capsule-stage-meta">
@@ -228,7 +227,7 @@ function ProductStage({ product }) {
         ))}
       </div>
 
-      <div className="scan-corner tr">{product.axes} EJES · TIEMPO REAL</div>
+      <div className="scan-corner tr">INSPECCIÓN MULTI-AXIAL ({product.axes} EJES)</div>
 
       <div className="capsule-belt">
         <div className="capsule-rail"></div>
@@ -237,7 +236,7 @@ function ProductStage({ product }) {
             key={it.id}
             className="capsule"
             style={{
-              animation: `beltMove 12s linear infinite`,
+              animation: `beltMove 24s linear infinite`,
               animationDelay: `${it.delay}s`,
             }}
           >
@@ -283,7 +282,7 @@ function ProductStageContainer() {
         const idx = HERO_PRODUCTS.findIndex(p => p.id === prev.id);
         return HERO_PRODUCTS[(idx + 1) % HERO_PRODUCTS.length];
       });
-    }, 6500);
+    }, 10000);
     return () => clearInterval(t);
   }, [paused]);
 

@@ -435,20 +435,20 @@ function TeamSection() {
     {
       name: "Dra. Elena Ruiz",
       role: "Directora de Inteligencia Artificial",
-      bio: "PhD en Visión Computacional. 10+ años liderando desarrollo de redes neuronales aplicadas a la detección de defectos en tiempo real.",
-      icon: "👩‍🔬",
+      bio: "PhD en Visión Computacional. Especialista en procesamiento de imágenes y modelos avanzados de inspección en tiempo real.",
+      icon: <Icon.Eye />,
     },
     {
       name: "Ing. Carlos Rossi",
       role: "Director de Automatización",
-      bio: "Ingeniero Electrónico. Ex-integrador senior de Siemens. Experto en conectar lógica AI a PLCs, buses de campo y sistemas SCADA.",
-      icon: "👨‍💻",
+      bio: "Ingeniero Electrónico. Ex-integrador senior de Siemens. Experto en conectar lógica inteligente a PLCs y sistemas SCADA.",
+      icon: <Icon.Cpu />,
     },
     {
       name: "Lic. Javier Domínguez",
       role: "Director de Proyectos",
-      bio: "Especialista en operaciones industriales. Lidera la implementación física, calibración en planta y cumplimiento de SLAs.",
-      icon: "👨‍💼",
+      bio: "Especialista en operaciones industriales. Lidera la implementación física, calibración en planta y cumplimiento de SLAs de servicio.",
+      icon: <Icon.Shield />,
     },
   ];
 
@@ -466,14 +466,14 @@ function TeamSection() {
         </Reveal>
         <Reveal delay={160}>
           <p className="section-lede">
-            Combinamos el rigor académico de la ciencia de datos con la experiencia de campo en entornos fabriles exigentes.
+            Combinamos la precisión del análisis de datos con la experiencia de campo en entornos fabriles exigentes.
           </p>
         </Reveal>
 
         <div className="cap-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
           {team.map((member, i) => (
             <Reveal key={member.name} className="cap" delay={i * 80} style={{ padding: 24, textAlign: "center" }}>
-              <div style={{ fontSize: 48, marginBottom: 16 }}>{member.icon}</div>
+              <div className="cap-icon" style={{ marginBottom: 16, display: "inline-flex", justifyContent: "center" }}>{member.icon}</div>
               <h3 className="cap-title" style={{ fontSize: 18, marginBottom: 4, width: "100%", textAlign: "center" }}>{member.name}</h3>
               <div style={{ color: "var(--brand)", fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.05em", marginBottom: 12 }}>{member.role.toUpperCase()}</div>
               <p style={{ color: "var(--text-2)", fontSize: 13, lineHeight: 1.5 }}>{member.bio}</p>
@@ -711,131 +711,7 @@ function Testimonial() {
   );
 }
 
-/* ---------- PricingSection ---------- */
-function PricingSection() {
-  const tiers = [
-    {
-      name: "Validación Piloto",
-      sub: "Evaluación inicial de viabilidad",
-      price: "U$S 3.500",
-      period: "pago único",
-      features: [
-        "Estudio óptico y lumínico",
-        "Modelo preliminar (YOLO/Edge)",
-        "Tasa de acierto estimada en offline",
-        "Reporte formal de ROI en 6 semanas",
-      ],
-      cta: "Iniciar piloto",
-      popular: false,
-    },
-    {
-      name: "Integración de Línea",
-      sub: "Para producción continua en piso",
-      price: "A medida",
-      period: "por línea de planta",
-      features: [
-        "Hardware industrial (Cámara + Jetson)",
-        "Integración directa PLC / SCADA",
-        "Panel HMI adaptado al operario",
-        "Capacitación in-situ al personal",
-      ],
-      cta: "Cotizar proyecto",
-      popular: true,
-    },
-    {
-      name: "Soporte SLA & Reentrenamiento",
-      sub: "Optimización continua a largo plazo",
-      price: "Desde U$S 450",
-      period: "al mes por línea",
-      features: [
-        "Soporte técnico prioritario 24/7",
-        "Monitoreo de deriva de datos",
-        "Reentrenamientos ante nuevos SKUs",
-        "Actualizaciones de seguridad de firmware",
-      ],
-      cta: "Ver condiciones",
-      popular: false,
-    },
-  ];
 
-  return (
-    <section className="section" id="planes">
-      <div className="wrap">
-        <Reveal>
-          <div className="section-label">[ 08 ] Planes y Propuesta Comercial</div>
-        </Reveal>
-        <Reveal delay={80}>
-          <h2 className="section-title">
-            Inversión clara,<br/>
-            <em>basada en resultados</em>.
-          </h2>
-        </Reveal>
-        <Reveal delay={160}>
-          <p className="section-lede">
-            Estructuramos nuestros servicios para mitigar tu riesgo tecnológico. Validamos la solución antes de realizar cualquier integración física en tus líneas de producción.
-          </p>
-        </Reveal>
-
-        <div className="cap-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)", alignItems: "stretch" }}>
-          {tiers.map((t, i) => (
-            <Reveal
-              key={t.name}
-              className={"cap"}
-              delay={i * 80}
-              style={{
-                padding: "32px 24px",
-                display: "flex",
-                flexDirection: "column",
-                border: t.popular ? "1px solid var(--brand)" : "1px solid var(--border)",
-                boxShadow: t.popular ? "0 0 20px rgba(206,32,60,0.15)" : "none",
-                position: "relative",
-              }}
-            >
-              {t.popular && (
-                <span style={{
-                  position: "absolute",
-                  top: 14,
-                  right: 14,
-                  background: "var(--brand)",
-                  color: "#ffffff",
-                  fontSize: 10,
-                  fontFamily: "var(--mono)",
-                  padding: "3px 8px",
-                  borderRadius: 4,
-                  fontWeight: 600,
-                }}>RECOMENDADO</span>
-              )}
-              <h3 className="cap-title" style={{ fontSize: 20, marginBottom: 4 }}>{t.name}</h3>
-              <p style={{ color: "var(--muted)", fontSize: 12, marginBottom: 20 }}>{t.sub}</p>
-              
-              <div style={{ marginBottom: 24 }}>
-                <span style={{ fontSize: 32, fontWeight: 700, color: "var(--text)" }}>{t.price}</span>
-                <span style={{ fontSize: 12, color: "var(--muted)", marginLeft: 6 }}>/ {t.period}</span>
-              </div>
-
-              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px 0", flex: 1, display: "flex", flexDirection: "column", gap: 12 }}>
-                {t.features.map(f => (
-                  <li key={f} style={{ fontSize: 13, color: "var(--text-2)", display: "flex", alignItems: "center", gap: 10 }}>
-                    <span style={{ color: t.popular ? "var(--brand)" : "var(--ok)", fontSize: 14 }}>✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#contacto"
-                className={"btn " + (t.popular ? "btn--brand" : "btn--outline")}
-                style={{ width: "100%", textAlign: "center", justifyContent: "center" }}
-              >
-                {t.cta}
-              </a>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ---------- Final CTA ---------- */
 function FinalCTA() {
@@ -843,13 +719,13 @@ function FinalCTA() {
     <section className="cta" id="contacto">
       <Reveal>
         <div className="section-label" style={{ justifyContent: "center", display: "inline-flex" }}>
-          [ 08 ] Empezar
+          [ 07 ] Contacto
         </div>
       </Reveal>
       <Reveal delay={120}>
         <h2>
-          Tu producto.<br/>
-          Nuestros <em>modelos</em>.
+          Optimicemos<br/>
+          tu <em>planta</em>.
         </h2>
       </Reveal>
       <Reveal delay={240}>
@@ -885,7 +761,6 @@ function Footer() {
               <li><a href="#servicios">Servicios</a></li>
               <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
               <li><a href="#stack">Tecnología</a></li>
-              <li><a href="#planes">Planes</a></li>
             </ul>
           </div>
           <div className="footer-col">
@@ -908,5 +783,5 @@ Object.assign(window, {
   MetricsMarquee, ServicesGrid, FlagshipService, IndustriesSection, HowWeWork, ProcessVisual,
   CaptureFrame, InferenceFrame, ValidateFrame, AuditFrame,
   Pipeline, PipelineSVG,
-  Stack, TeamSection, Testimonial, PricingSection, FinalCTA, Footer
+  Stack, TeamSection, Testimonial, FinalCTA, Footer
 });
