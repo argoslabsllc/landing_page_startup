@@ -236,6 +236,12 @@ function Process() {
                 key={i}
                 className={"step " + (i === active ? "is-active" : "")}
                 onClick={() => setActive(i)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActive(i); }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-pressed={i === active}
               >
                 <div className="step-num">{String(i + 1).padStart(2, "0")}</div>
                 <div>
@@ -703,7 +709,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <a href="#top" className="brand">
-              <img src="assets/logo.png" alt="ArgosIA" className="logo-img" style={{ height: 80 }} />
+              <img src="assets/logo.png" alt="ArgosIA" className="logo-img" />
             </a>
             <p className="footer-desc">
               Machine learning aplicado al control de calidad en línea.

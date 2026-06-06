@@ -4,8 +4,9 @@
 function App() {
   return (
     <>
+      <a href="#main" className="skip-link">Saltar al contenido</a>
       <Header />
-      <main>
+      <main id="main" tabIndex={-1}>
         <Hero />
         <MetricsMarquee />
         <Capabilities />
