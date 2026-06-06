@@ -17,67 +17,67 @@ function MetricsMarquee() {
   );
 }
 
-/* ---------- Capacidades ---------- */
-function Capabilities() {
-  const caps = [
+/* ---------- ServicesGrid ---------- */
+function ServicesGrid() {
+  const services = [
     {
       n: "01",
       icon: <Icon.Eye />,
-      title: "Visión por computador en línea",
-      body: "Modelos entrenados sobre tu producto y tu planta, no sobre datasets genéricos. Detección de fisuras, color, forma, posición, etiqueta, lote y todo lo que tu QC defina.",
-      tags: ["YOLOv8", "Edge inference", "<420 ms"],
+      title: "Desarrollo de Modelos de Visión IA",
+      body: "Entrenamos redes de deep learning a medida (detección de defectos, conteo, control dimensional) usando imágenes reales de tu propia planta.",
+      tags: ["YOLOv8/v10", "Modelos Propietarios", "99.2% Precisión"],
     },
     {
       n: "02",
       icon: <Icon.Cpu />,
-      title: "Decisión en el operario",
-      body: "Cada unidad valida o rechaza al instante. La UI fue diseñada con operarios reales: tipografía grande, semáforo claro, sin jerga. Sin gerentes en el medio.",
-      tags: ["Operator-first", "WCAG AA", "Offline-ready"],
+      title: "Integración e Ingeniería de Campo",
+      body: "Diseñamos y montamos la infraestructura física: cámaras Basler, sistemas de iluminación industrial y tableros con placas NVIDIA Jetson.",
+      tags: ["Cámaras GigE", "NVIDIA Jetson", "Hardware Industrial"],
     },
     {
       n: "03",
       icon: <Icon.Pulse />,
-      title: "Series y predicción de turno",
-      body: "Anticipamos la deriva del proceso antes que se vuelva rechazo. Proyección de ritmo, aprobación y meta a fin de jornada con bandas de confianza.",
-      tags: ["Forecast", "Anomaly detect", "Backtesting"],
+      title: "Conexión a PLC & Sistemas de Planta",
+      body: "Desarrollamos la lógica de comunicación para interactuar con tus PLCs en tiempo real. Soporte para Siemens, Rockwell, Modbus y OPC UA.",
+      tags: ["OPC UA", "Modbus", "Integración PLC"],
     },
     {
       n: "04",
       icon: <Icon.Shield />,
-      title: "Trazabilidad auditada",
-      body: "Cada inferencia queda almacenada con su lectura y firma de modelo. Reportes por turno, lote y SKU exportables para auditorías ISO 22000 y HACCP.",
-      tags: ["ISO 22000", "Audit log", "Firmas v3.4"],
+      title: "Soporte Continuo & Mantenimiento (SLA)",
+      body: "Ofrecemos servicios de monitoreo, reentrenamiento periódico de modelos ante nuevos SKUs y calibración remota para garantizar cero paradas.",
+      tags: ["Soporte 24/7", "Reentrenamiento", "Uptime Garantizado"],
     },
   ];
+
   return (
-    <section className="section" id="capacidades">
+    <section className="section" id="servicios">
       <div className="wrap">
         <Reveal>
-          <div className="section-label">[ 01 ] Capacidades</div>
+          <div className="section-label">[ 01 ] Nuestros Servicios</div>
         </Reveal>
         <Reveal delay={80}>
           <h2 className="section-title">
-            ML que <em>vive en la línea</em>,<br/>
-            <span className="dim">no en una notebook.</span>
+            Ingeniería de IA aplicada<br/>
+            <span className="dim">a resolver problemas reales.</span>
           </h2>
         </Reveal>
         <Reveal delay={160}>
           <p className="section-lede">
-            Construimos sistemas pensados para que el operario los use ocho horas
-            por turno. La latencia, la legibilidad y la robustez ganan a las
-            métricas de paper.
+            No somos una plataforma SaaS para que experimentes. Entregamos soluciones llave en mano,
+            haciéndonos cargo desde la consultoría inicial y el cableado hasta el mantenimiento a largo plazo.
           </p>
         </Reveal>
 
         <div className="cap-grid">
-          {caps.map((c, i) => (
-            <Reveal key={c.n} className="cap" delay={i * 80}>
-              <div className="cap-num">/ {c.n}</div>
-              <div className="cap-icon">{c.icon}</div>
-              <h3 className="cap-title">{c.title}</h3>
-              <p className="cap-body">{c.body}</p>
+          {services.map((s, i) => (
+            <Reveal key={s.n} className="cap" delay={i * 80}>
+              <div className="cap-num">/ {s.n}</div>
+              <div className="cap-icon">{s.icon}</div>
+              <h3 className="cap-title">{s.title}</h3>
+              <p className="cap-body">{s.body}</p>
               <div className="cap-tag">
-                {c.tags.map(t => <span key={t}>{t}</span>)}
+                {s.tags.map(t => <span key={t}>{t}</span>)}
               </div>
             </Reveal>
           ))}
@@ -87,145 +87,130 @@ function Capabilities() {
   );
 }
 
-/* ---------- Products: adapts to anything ---------- */
-function ProductsSection() {
-  const cards = [
+/* ---------- FlagshipService ---------- */
+function FlagshipService() {
+  return (
+    <section className="section section--tight" id="servicio-estrella">
+      <div className="wrap">
+        <Reveal>
+          <div className="section-label">[ 02 ] Servicio Insignia</div>
+        </Reveal>
+        <Reveal delay={80}>
+          <h2 className="section-title">
+            Visión Artificial en Línea:<br/>
+            <em>Inferencia en milisegundos</em>.
+          </h2>
+        </Reveal>
+        <Reveal delay={160}>
+          <p className="section-lede" style={{ marginBottom: 40 }}>
+            Implementamos sistemas de inspección visual continua de altísima velocidad. 
+            Nuestros ingenieros instalan cámaras sobre tu cinta transportadora y conectan un nodo edge que analiza cada unidad en tiempo real, decidiendo el rechazo sin retrasar la producción.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- IndustriesSection ---------- */
+function IndustriesSection() {
+  const industries = [
     {
-      name: "Cápsulas de café",
-      axes: 3,
-      desc: "Empaque · forma · orden",
-      icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4"><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M6 6h12"/></svg>,
+      name: "Alimentos & Bebidas",
+      desc: "Inspección de empaque, sellado hermético, nivel de llenado y detección de cuerpos extraños a alta velocidad.",
+      icon: "☕",
     },
     {
-      name: "Botellas y latas",
-      axes: 4,
-      desc: "Tapa · nivel · etiqueta · lote",
-      icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4"><path d="M9 2h6v4l1.5 2.5C17 9.5 17 11 17 11v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9s0-1.5.5-2.5L9 6V2Z"/></svg>,
+      name: "Farmacéutica",
+      desc: "Control de blisters, integridad de comprimidos, legibilidad de códigos de lote e inspección de sellado bajo normas estrictas.",
+      icon: "💊",
     },
     {
-      name: "Blíster farma",
-      axes: 5,
-      desc: "Celdas · color · foil · forma · lote",
-      icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="8" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="16" cy="12" r="1.6"/></svg>,
+      name: "Metalúrgica & Autopartes",
+      desc: "Detección de rebabas, fallas geométricas, grietas estructurales y verificación de soldadura.",
+      icon: "🔩",
     },
     {
-      name: "Fruta fresca",
-      axes: 2,
-      desc: "Color/maduración · defectos",
-      icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4"><path d="M12 4c-3 0-7 2-7 7s3 9 7 9 7-4 7-9-4-7-7-7Z"/><path d="M12 4c0-1 1-2 2-2"/></svg>,
-    },
-    {
-      name: "Piezas metálicas",
-      axes: 4,
-      desc: "Geometría · rebabas · soldadura · marca",
-      icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4"><polygon points="12,3 21,8 21,16 12,21 3,16 3,8"/><circle cx="12" cy="12" r="3"/></svg>,
-    },
-    {
-      name: "Envases flexibles",
-      axes: 3,
-      desc: "Sellado · impresión · arrugas",
-      icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4"><path d="M6 3h12v18H6Z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>,
+      name: "Logística & Packing",
+      desc: "Clasificación automática de bultos por dimensiones, color, lectura de etiquetas y control de daños.",
+      icon: "📦",
     },
   ];
 
   return (
-    <section className="section" id="productos">
+    <section className="section" id="industrias">
       <div className="wrap">
         <Reveal>
-          <div className="section-label">[ 02 ] Adaptable a cualquier producto</div>
+          <div className="section-label">[ 03 ] Sectores de Aplicación</div>
         </Reveal>
         <Reveal delay={80}>
           <h2 className="section-title">
-            Un sistema.<br/>
-            <em>Tu producto</em>.
+            Experiencia en sectores<br/>
+            <em>altamente exigentes</em>.
           </h2>
         </Reveal>
         <Reveal delay={160}>
           <p className="section-lede">
-            ArgosIA no es un detector pre-entrenado. Entrenamos los modelos sobre
-            tu línea, definimos contigo los <em>ejes de validación</em> que
-            importan para tu QC, y el panel del operario se mantiene idéntico.
-            Cambias de SKU, se reentrena; el procedimiento no cambia.
+            Cada industria tiene desafíos específicos de iluminación, velocidad y normativas. 
+            Nuestros consultores diseñan la solución adaptada a tu estándar de calidad.
           </p>
         </Reveal>
 
-        <div className="products">
-          {cards.map((c, i) => (
-            <Reveal key={c.name} className="product-card" delay={i * 60}>
-              <div className="product-icon">{c.icon}</div>
-              <div className="product-name">{c.name}</div>
-              <div className="product-axes">
-                <span className="num">{c.axes}</span> ejes · {c.desc}
-              </div>
+        <div className="products" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
+          {industries.map((ind, i) => (
+            <Reveal key={ind.name} className="product-card" delay={i * 60} style={{ padding: 24 }}>
+              <div style={{ fontSize: 32, marginBottom: 16 }}>{ind.icon}</div>
+              <div className="product-name" style={{ fontSize: 18, marginBottom: 8 }}>{ind.name}</div>
+              <p style={{ color: "var(--text-2)", fontSize: 13, lineHeight: 1.5 }}>{ind.desc}</p>
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={200}>
-          <div style={{
-            marginTop: 32,
-            padding: "18px 24px",
-            border: "1px dashed var(--border-2)",
-            borderRadius: 12,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
-            gap: 16,
-            fontFamily: "var(--mono)",
-            fontSize: 12,
-            color: "var(--muted)",
-            letterSpacing: "0.06em",
-          }}>
-            <span><span style={{ color: "var(--brand)" }}>{">"}</span> ¿tu producto no está acá?</span>
-            <span style={{ color: "var(--text-2)" }}>Validamos viabilidad en 48h con muestras tuyas y un set de imágenes.</span>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
 }
 
-/* ---------- Process (general) ---------- */
-function Process() {
+/* ---------- HowWeWork ---------- */
+function HowWeWork() {
   const [active, setActive] = React.useState(0);
   const steps = [
     {
-      title: "Captura",
-      body: "Cámaras industriales sobre tu cinta o línea. Hasta 60 fps con iluminación controlada. Calibramos contra el producto patrón sin tocar tu PLC.",
-      detail: 'captura.line("línea-01")',
+      title: "1. Diagnóstico & Factibilidad",
+      body: "Analizamos tu línea, tomamos una muestra inicial de productos y evaluamos la viabilidad óptica de la inspección. Definimos el ROI esperado en menos de una semana.",
+      detail: "argos.diagnose({ site: 'Línea 1', samples: 150 })",
     },
     {
-      title: "Inferencia multi-eje",
-      body: "Definimos contigo los ejes que importan: pueden ser 2, 3, 5 o los que tu QC requiera. Cada modelo corre en paralelo y responde con un veredicto legible.",
-      detail: "ArgosIA.infer({ axes: N })",
+      title: "2. Diseño & Entrenamiento a medida",
+      body: "Entrenamos la red neuronal con imágenes etiquetadas de tus propios defectos y productos correctos. Definimos en conjunto los ejes de control de calidad.",
+      detail: "argos.train({ model: 'ArgosIA-v3.5', defects: 6 })",
     },
     {
-      title: "Validación",
-      body: "El panel muestra OK / RECHAZO por eje, con la lectura física que lo motivó (mm, g, kPa, ΔE, °). El operario solo decide ante duda real.",
-      detail: "panel.validate(decision)",
+      title: "3. Instalación e Integración física",
+      body: "Montamos las cámaras GigE, la iluminación industrial controlada y el nodo local (NVIDIA Jetson) en tu planta. Conectamos los resultados directamente a tus PLCs.",
+      detail: "argos.deploy({ plc_ip: '192.168.1.50', edge_node: 'Jetson' })",
     },
     {
-      title: "Trazabilidad",
-      body: "Cada unidad queda registrada con su lectura, su lote y la versión del modelo. El supervisor cierra turno con un reporte completo, no con planilla.",
-      detail: "audit.commit(turno)",
+      title: "4. Soporte Operativo & SLA",
+      body: "Monitoreamos la deriva del modelo, lo reentrenamos cuando agregás nuevos SKUs y brindamos soporte presencial y remoto ante cualquier anomalía.",
+      detail: "argos.sla.monitor({ uptime: '99.4%', status: 'active' })",
     },
   ];
+
   React.useEffect(() => {
-    const t = setInterval(() => setActive(a => (a + 1) % steps.length), 3500);
+    const t = setInterval(() => setActive(a => (a + 1) % steps.length), 4000);
     return () => clearInterval(t);
   }, []);
 
   return (
-    <section className="section" id="como">
+    <section className="section" id="como-trabajamos">
       <div className="wrap">
         <Reveal>
-          <div className="section-label">[ 03 ] Cómo funciona</div>
+          <div className="section-label">[ 04 ] Metodología de Trabajo</div>
         </Reveal>
         <Reveal delay={80}>
           <h2 className="section-title">
-            Cuatro pasos,<br/>
-            <em>una jornada</em> de planta.
+            De la idea a producción<br/>
+            <em>en solo 6 semanas</em>.
           </h2>
         </Reveal>
 
@@ -256,9 +241,6 @@ function Process() {
             <ProcessVisual step={active} steps={steps} />
           </div>
         </div>
-
-        {/* Pipeline animado */}
-        <Pipeline />
       </div>
     </section>
   );
@@ -444,6 +426,62 @@ function AuditFrame() {
       ))}
       <style>{`@keyframes appear { from { opacity: 0; transform: translateX(-6px); } }`}</style>
     </div>
+  );
+}
+
+/* ---------- TeamSection ---------- */
+function TeamSection() {
+  const team = [
+    {
+      name: "Dra. Elena Ruiz",
+      role: "Directora de Inteligencia Artificial",
+      bio: "PhD en Visión Computacional. 10+ años liderando desarrollo de redes neuronales aplicadas a la detección de defectos en tiempo real.",
+      icon: "👩‍🔬",
+    },
+    {
+      name: "Ing. Carlos Rossi",
+      role: "Director de Automatización",
+      bio: "Ingeniero Electrónico. Ex-integrador senior de Siemens. Experto en conectar lógica AI a PLCs, buses de campo y sistemas SCADA.",
+      icon: "👨‍💻",
+    },
+    {
+      name: "Lic. Javier Domínguez",
+      role: "Director de Proyectos",
+      bio: "Especialista en operaciones industriales. Lidera la implementación física, calibración en planta y cumplimiento de SLAs.",
+      icon: "👨‍💼",
+    },
+  ];
+
+  return (
+    <section className="section" id="equipo">
+      <div className="wrap">
+        <Reveal>
+          <div className="section-label">[ 06 ] Nuestro Equipo</div>
+        </Reveal>
+        <Reveal delay={80}>
+          <h2 className="section-title">
+            Especialistas en IA<br/>
+            <em>y automatización de planta</em>.
+          </h2>
+        </Reveal>
+        <Reveal delay={160}>
+          <p className="section-lede">
+            Combinamos el rigor académico de la ciencia de datos con la experiencia de campo en entornos fabriles exigentes.
+          </p>
+        </Reveal>
+
+        <div className="cap-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+          {team.map((member, i) => (
+            <Reveal key={member.name} className="cap" delay={i * 80} style={{ padding: 24, textAlign: "center" }}>
+              <div style={{ fontSize: 48, marginBottom: 16 }}>{member.icon}</div>
+              <h3 className="cap-title" style={{ fontSize: 18, marginBottom: 4, width: "100%", textAlign: "center" }}>{member.name}</h3>
+              <div style={{ color: "var(--brand)", fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.05em", marginBottom: 12 }}>{member.role.toUpperCase()}</div>
+              <p style={{ color: "var(--text-2)", fontSize: 13, lineHeight: 1.5 }}>{member.bio}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -673,6 +711,132 @@ function Testimonial() {
   );
 }
 
+/* ---------- PricingSection ---------- */
+function PricingSection() {
+  const tiers = [
+    {
+      name: "Validación Piloto",
+      sub: "Evaluación inicial de viabilidad",
+      price: "U$S 3.500",
+      period: "pago único",
+      features: [
+        "Estudio óptico y lumínico",
+        "Modelo preliminar (YOLO/Edge)",
+        "Tasa de acierto estimada en offline",
+        "Reporte formal de ROI en 6 semanas",
+      ],
+      cta: "Iniciar piloto",
+      popular: false,
+    },
+    {
+      name: "Integración de Línea",
+      sub: "Para producción continua en piso",
+      price: "A medida",
+      period: "por línea de planta",
+      features: [
+        "Hardware industrial (Cámara + Jetson)",
+        "Integración directa PLC / SCADA",
+        "Panel HMI adaptado al operario",
+        "Capacitación in-situ al personal",
+      ],
+      cta: "Cotizar proyecto",
+      popular: true,
+    },
+    {
+      name: "Soporte SLA & Reentrenamiento",
+      sub: "Optimización continua a largo plazo",
+      price: "Desde U$S 450",
+      period: "al mes por línea",
+      features: [
+        "Soporte técnico prioritario 24/7",
+        "Monitoreo de deriva de datos",
+        "Reentrenamientos ante nuevos SKUs",
+        "Actualizaciones de seguridad de firmware",
+      ],
+      cta: "Ver condiciones",
+      popular: false,
+    },
+  ];
+
+  return (
+    <section className="section" id="planes">
+      <div className="wrap">
+        <Reveal>
+          <div className="section-label">[ 08 ] Planes y Propuesta Comercial</div>
+        </Reveal>
+        <Reveal delay={80}>
+          <h2 className="section-title">
+            Inversión clara,<br/>
+            <em>basada en resultados</em>.
+          </h2>
+        </Reveal>
+        <Reveal delay={160}>
+          <p className="section-lede">
+            Estructuramos nuestros servicios para mitigar tu riesgo tecnológico. Validamos la solución antes de realizar cualquier integración física en tus líneas de producción.
+          </p>
+        </Reveal>
+
+        <div className="cap-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)", alignItems: "stretch" }}>
+          {tiers.map((t, i) => (
+            <Reveal
+              key={t.name}
+              className={"cap"}
+              delay={i * 80}
+              style={{
+                padding: "32px 24px",
+                display: "flex",
+                flexDirection: "column",
+                border: t.popular ? "1px solid var(--brand)" : "1px solid var(--border)",
+                boxShadow: t.popular ? "0 0 20px rgba(206,32,60,0.15)" : "none",
+                position: "relative",
+              }}
+            >
+              {t.popular && (
+                <span style={{
+                  position: "absolute",
+                  top: 14,
+                  right: 14,
+                  background: "var(--brand)",
+                  color: "#ffffff",
+                  fontSize: 10,
+                  fontFamily: "var(--mono)",
+                  padding: "3px 8px",
+                  borderRadius: 4,
+                  fontWeight: 600,
+                }}>RECOMENDADO</span>
+              )}
+              <h3 className="cap-title" style={{ fontSize: 20, marginBottom: 4 }}>{t.name}</h3>
+              <p style={{ color: "var(--muted)", fontSize: 12, marginBottom: 20 }}>{t.sub}</p>
+              
+              <div style={{ marginBottom: 24 }}>
+                <span style={{ fontSize: 32, fontWeight: 700, color: "var(--text)" }}>{t.price}</span>
+                <span style={{ fontSize: 12, color: "var(--muted)", marginLeft: 6 }}>/ {t.period}</span>
+              </div>
+
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px 0", flex: 1, display: "flex", flexDirection: "column", gap: 12 }}>
+                {t.features.map(f => (
+                  <li key={f} style={{ fontSize: 13, color: "var(--text-2)", display: "flex", alignItems: "center", gap: 10 }}>
+                    <span style={{ color: t.popular ? "var(--brand)" : "var(--ok)", fontSize: 14 }}>✓</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="#contacto"
+                className={"btn " + (t.popular ? "btn--brand" : "btn--outline")}
+                style={{ width: "100%", textAlign: "center", justifyContent: "center" }}
+              >
+                {t.cta}
+              </a>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- Final CTA ---------- */
 function FinalCTA() {
   return (
@@ -712,18 +876,16 @@ function Footer() {
               <img src="assets/logo.png" alt="ArgosIA" className="logo-img" />
             </a>
             <p className="footer-desc">
-              Machine learning aplicado al control de calidad en línea.
-              Construimos sistemas para el operario, auditables y robustos,
-              adaptables a cualquier producto.
+              Consultoría, ingeniería e integración llave en mano de sistemas de inteligencia artificial para control de calidad y predicción de procesos en piso de planta.
             </p>
           </div>
           <div className="footer-col">
-            <h3>Producto</h3>
+            <h3>Servicios</h3>
             <ul>
-              <li><a href="#capacidades">Capacidades</a></li>
-              <li><a href="#productos">Productos</a></li>
-              <li><a href="#como">Cómo funciona</a></li>
-              <li><a href="#stack">Stack</a></li>
+              <li><a href="#servicios">Servicios</a></li>
+              <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
+              <li><a href="#stack">Tecnología</a></li>
+              <li><a href="#planes">Planes</a></li>
             </ul>
           </div>
           <div className="footer-col">
@@ -734,7 +896,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 ArgosIA · Todos los derechos reservados</span>
+          <span>© 2026 Argos Labs · Todos los derechos reservados</span>
           <span className="footer-status">Todos los sistemas operativos</span>
         </div>
       </div>
@@ -743,8 +905,8 @@ function Footer() {
 }
 
 Object.assign(window, {
-  MetricsMarquee, Capabilities, ProductsSection, Process, ProcessVisual,
+  MetricsMarquee, ServicesGrid, FlagshipService, IndustriesSection, HowWeWork, ProcessVisual,
   CaptureFrame, InferenceFrame, ValidateFrame, AuditFrame,
   Pipeline, PipelineSVG,
-  Stack, Testimonial, FinalCTA, Footer
+  Stack, TeamSection, Testimonial, PricingSection, FinalCTA, Footer
 });

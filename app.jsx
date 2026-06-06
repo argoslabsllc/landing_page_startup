@@ -9,12 +9,15 @@ function App() {
       <main id="main" tabIndex={-1}>
         <Hero />
         <MetricsMarquee />
-        <Capabilities />
-        <ProductsSection />
-        <Process />
+        <ServicesGrid />
+        <FlagshipService />
+        <IndustriesSection />
+        <HowWeWork />
         <CaseStudy />
         <Stack />
+        <TeamSection />
         <Testimonial />
+        <PricingSection />
         <FinalCTA />
       </main>
       <Footer />
