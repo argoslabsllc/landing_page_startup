@@ -17,7 +17,6 @@ function App() {
         <Stack />
         <TeamSection />
         <Testimonial />
-        <PricingSection />
         <FinalCTA />
       </main>
       <Footer />
