@@ -107,6 +107,7 @@ function FlagshipService() {
             Nuestros ingenieros instalan cámaras sobre tu cinta transportadora y conectan un nodo edge que analiza cada unidad en tiempo real, decidiendo el rechazo sin retrasar la producción.
           </p>
         </Reveal>
+        <Pipeline />
       </div>
     </section>
   );
@@ -715,28 +716,153 @@ function Testimonial() {
 
 /* ---------- Final CTA ---------- */
 function FinalCTA() {
+  const [formData, setFormData] = React.useState({
+    nombre: "",
+    empresa: "",
+    industria: "Alimentos",
+    velocidad: "",
+    inspeccion: "",
+  });
+  const [submitted, setSubmitted] = React.useState(false);
+  const [logs, setLogs] = React.useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    
+    const logLines = [
+      `[INFO] Inicializando análisis de factibilidad para ${formData.empresa}...`,
+      `[INFO] Origen detectado: Industria ${formData.industria}`,
+      `[INFO] Parámetros de entrada: velocidad de línea = ${formData.velocidad} u/min`,
+      `[INFO] Requerimiento óptico: ${formData.inspeccion}`,
+      `[OK] Modelos YOLO-Edge asignados de manera óptima.`,
+      `[OK] Reporte preliminar de ROI en generación (< 48 hs).`,
+      `[SUCCESS] Solicitud registrada con ID: ARGOS-${Math.floor(Math.random() * 900000 + 100000)}`
+    ];
+
+    logLines.forEach((line, index) => {
+      setTimeout(() => {
+        setLogs(prev => [...prev, line]);
+      }, (index + 1) * 350);
+    });
+  };
+
   return (
     <section className="cta" id="contacto">
-      <Reveal>
-        <div className="section-label" style={{ justifyContent: "center", display: "inline-flex" }}>
-          [ 07 ] Contacto
-        </div>
-      </Reveal>
-      <Reveal delay={120}>
-        <h2>
-          Optimicemos<br/>
-          tu <em>planta</em>.
-        </h2>
-      </Reveal>
-      <Reveal delay={240}>
-        <div className="cta-cta">
-          <a href="#" className="btn btn--brand btn--lg">Hablemos de tu planta <Icon.Arrow /></a>
-          <a href="#caso" className="btn btn--outline btn--lg">Ver caso La Virginia</a>
-        </div>
-      </Reveal>
-      <Reveal delay={360}>
-        <div className="cta-foot">PILOTO EN 6 SEMANAS · SIN MIGRAR DATOS A LA NUBE</div>
-      </Reveal>
+      <div className="wrap">
+        <Reveal>
+          <div className="section-label" style={{ justifyContent: "center", display: "inline-flex", width: "100%" }}>
+            [ 07 ] Contacto y Factibilidad
+          </div>
+        </Reveal>
+        <Reveal delay={120}>
+          <h2 style={{ textAlign: "center", marginBottom: 40, fontSize: "clamp(32px, 5vw, 64px)" }}>
+            Iniciemos el diagnóstico<br/>
+            <em>de tu planta</em>.
+          </h2>
+        </Reveal>
+
+        <Reveal delay={240}>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: submitted ? "1fr" : "1fr 1fr",
+            gap: 48,
+            alignItems: "start",
+            maxWidth: submitted ? 600 : 960,
+            margin: "0 auto",
+          }} className="cta-grid-b2b">
+            {!submitted ? (
+              <>
+                <div style={{ textAlign: "left" }}>
+                  <h3 style={{ fontSize: 22, fontWeight: 600, marginBottom: 16 }}>¿Qué inspección necesitás automatizar?</h3>
+                  <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.6, marginBottom: 24 }}>
+                    Completá los datos de tu línea de producción. Nuestros ingenieros evaluarán la factibilidad de visión artificial on-premise y te enviarán un reporte preliminar de viabilidad técnica y estimación de ROI en 48 horas sin costo.
+                  </p>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 14, color: "var(--muted)", fontSize: 13, fontFamily: "var(--mono)" }}>
+                    <div>📂 Paso 1: Muestras ópticas</div>
+                    <div>⚙️ Paso 2: Validación offline</div>
+                    <div>🚀 Paso 3: Integración en PLC</div>
+                  </div>
+                </div>
+
+                <form onSubmit={handleSubmit} className="b2b-form">
+                  <div className="form-group">
+                    <label>Nombre y Apellido</label>
+                    <input type="text" required value={formData.nombre} onChange={e => setFormData({...formData, nombre: e.target.value})} placeholder="Ej. Carlos Rossi" />
+                  </div>
+                  <div className="form-group">
+                    <label>Empresa / Planta</label>
+                    <input type="text" required value={formData.empresa} onChange={e => setFormData({...formData, empresa: e.target.value})} placeholder="Ej. La Virginia S.A." />
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                    <div className="form-group">
+                      <label>Industria</label>
+                      <select value={formData.industria} onChange={e => setFormData({...formData, industria: e.target.value})}>
+                        <option value="Alimentos">Alimentos y Bebidas</option>
+                        <option value="Farma">Farmacéutica</option>
+                        <option value="Metalurgica">Metalúrgica</option>
+                        <option value="Logistica">Logística</option>
+                        <option value="Otra">Otra</option>
+                      </select>
+                    </div>
+                    <div className="form-group">
+                      <label>Velocidad de Línea (u/min)</label>
+                      <input type="number" required value={formData.velocidad} onChange={e => setFormData({...formData, velocidad: e.target.value})} placeholder="Ej. 120" />
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label>Defecto o Parámetro a inspeccionar</label>
+                    <textarea required value={formData.inspeccion} onChange={e => setFormData({...formData, inspeccion: e.target.value})} placeholder="Describí brevemente qué defecto óptico buscás detectar (ej. sellado deficiente, fisuras, legibilidad de lote)" rows={3}></textarea>
+                  </div>
+                  <button type="submit" className="btn btn--brand btn--lg" style={{ width: "100%", justifyContent: "center" }}>
+                    Solicitar Estudio de Factibilidad
+                  </button>
+                </form>
+              </>
+            ) : (
+              <div className="lead-terminal" style={{
+                background: "var(--bg-2)",
+                border: "1px solid var(--border)",
+                borderRadius: 12,
+                padding: 24,
+                fontFamily: "var(--mono)",
+                fontSize: 13,
+                minHeight: 280,
+                boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+                textAlign: "left",
+              }}>
+                <div style={{ display: "flex", justifyContent: "space-between", color: "var(--muted)", fontSize: 11, borderBottom: "1px solid var(--border)", paddingBottom: 10, marginBottom: 16 }}>
+                  <span>ARGOS CONSOLE // CONNECTION ESTABLISHED</span>
+                  <span style={{ color: "var(--ok)", animation: "blink 1.2s steps(1) infinite" }}>● STATUS_OK</span>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  {logs.map((log, index) => (
+                    <div key={index} className="log-line" style={{
+                      color: log.includes("SUCCESS") ? "var(--ok)" : log.includes("OK") ? "var(--text)" : "var(--muted)",
+                      animation: "appear 0.2s ease-out both",
+                    }}>
+                      <span style={{ color: "var(--brand-text)", marginRight: 8 }}>&gt;</span>
+                      {log}
+                    </div>
+                  ))}
+                  {logs.length < 7 && (
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <span style={{ color: "var(--brand-text)", marginRight: 8 }}>&gt;</span>
+                      <span className="cursor" style={{ width: 8, height: 14, background: "var(--brand)", animation: "blink 1.2s steps(1) infinite" }} />
+                    </div>
+                  )}
+                </div>
+                {logs.length === 7 && (
+                  <div style={{ marginTop: 24, textAlign: "center", color: "var(--text)", animation: "appear 0.5s ease-out both" }}>
+                    <p style={{ fontWeight: 600, color: "var(--ok)", marginBottom: 8 }}>¡Solicitud enviada con éxito!</p>
+                    <p style={{ fontSize: 13, color: "var(--text-2)" }}>Recibirás el diagnóstico preliminar en tu correo.</p>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }
