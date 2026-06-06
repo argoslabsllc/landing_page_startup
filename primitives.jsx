@@ -38,6 +38,7 @@ function CountUp({ to, decimals = 0, duration = 1400, suffix = "", prefix = "" }
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (!Number.isFinite(to)) { setVal(0); return; }  // guard: evita mostrar "NaN" si el dato no llegó
     const io = new IntersectionObserver(([e]) => {
       if (e.isIntersecting && !started.current) {
         started.current = true;

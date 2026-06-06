@@ -52,7 +52,7 @@ function Header() {
               href={"#" + l.id}
               onClick={() => setMenuOpen(false)}
               className={activeId === l.id ? "is-active" : ""}
-              aria-current={activeId === l.id ? "true" : undefined}
+              aria-current={activeId === l.id ? "location" : undefined}
             >{l.label}</a>
           ))}
         </nav>
@@ -266,9 +266,17 @@ function ProductStage({ product }) {
 
 function ProductStageContainer() {
   const [active, setActive] = React.useState(HERO_PRODUCTS[0]);
+  const [paused, setPaused] = React.useState(false);
 
-  // Auto-rotate every 6s
+  // Pausar la rotación si el usuario prefiere menos movimiento (WCAG 2.2.2)
   React.useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) setPaused(true);
+  }, []);
+
+  // Auto-rotate cada 6.5s (se detiene si el usuario interactúa o pidió menos movimiento)
+  React.useEffect(() => {
+    if (paused) return;
     const t = setInterval(() => {
       setActive(prev => {
         const idx = HERO_PRODUCTS.findIndex(p => p.id === prev.id);
@@ -276,7 +284,7 @@ function ProductStageContainer() {
       });
     }, 6500);
     return () => clearInterval(t);
-  }, []);
+  }, [paused]);
 
   return (
     <div className="capsule-stage">
@@ -286,7 +294,7 @@ function ProductStageContainer() {
           <button
             key={p.id}
             className={"prod-tab " + (p.id === active.id ? "is-on" : "")}
-            onClick={() => setActive(p)}
+            onClick={() => { setActive(p); setPaused(true); }}
             aria-pressed={p.id === active.id}
             aria-label={"Ver " + p.name}
           >
