@@ -1,0 +1,15 @@
+# Archivos que NO deben publicarse como assets estáticos.
+# Sintaxis tipo .gitignore. Wrangler sirve del filesystem (no de git),
+# así que esto es lo único que evita filtrar config privada a producción.
+.git
+.github
+.claude
+.wrangler
+node_modules
+.env*
+.dev.vars*
+wrangler.jsonc
+.assetsignore
+.gitignore
+README.md
+*.log
