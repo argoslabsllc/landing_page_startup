@@ -2,10 +2,17 @@
   // Worker de Cloudflare en modo "static assets only".
   // El sitio es estático (index.html + .jsx servidos con Babel en runtime + css),
   // no hay build step: se sirve el repo tal cual desde la raíz.
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "landingargos",
   "compatibility_date": "2026-06-06",
+  "observability": {
+    "enabled": true
+  },
   "assets": {
     "directory": ".",
     "not_found_handling": "single-page-application"
-  }
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
 }
