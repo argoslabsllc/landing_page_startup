@@ -136,15 +136,12 @@ function CaseStudy() {
             <div style={{ flex: 1 }}>
               <div className="lv-meta">
                 <div className="lv-meta-text">
-                  <span className="lv-meta-tag">Café · Argentina · 4 líneas</span>
-                  <h2>Validación automática de cápsulas en 3 ejes</h2>
+                  <span className="lv-meta-tag">Rosario, Santa Fe · Hackathon La Virginia</span>
+                  <h2>Inspección de cápsulas en tiempo real</h2>
                 </div>
               </div>
               <p className="lv-quote" style={{ marginTop: 24 }}>
-                Para La Virginia definimos <em>tres ejes de validación</em>:
-                empaquetado, cápsula y orden de bandeja. Es la configuración
-                específica de este caso — ArgosIA se adapta al número y tipo de
-                ejes que tu producto requiera.
+                Desarrollamos y presentamos ante el equipo de operaciones de La Virginia (en la Hackathon de Rosario organizada por Shippear y potenciada por Vercel) un sistema integrado de visión artificial. Validamos en milisegundos los tres ejes de control de la línea: sellado (foil), integridad de cápsula y posicionamiento en bandeja.
               </p>
             </div>
             <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
@@ -218,20 +215,20 @@ function CaseStudy() {
             <BottomCard
               tag="ANTES"
               title="Inspección manual"
-              body="Un operario revisaba a ojo 1 cada 12 cápsulas. La línea se detenía 4–6 veces por turno para muestreo."
-              foot="aprobación medida: 83 %"
+              body="Muestreo aleatorio manual (1 de cada 12 cápsulas). Detención obligatoria de la línea para control de calidad."
+              foot="Monitoreo discontinuo"
             />
             <BottomCard
-              tag="AHORA · CON ArgosIA"
+              tag="PROTOTIPO HACKATHON"
               title="Validación en 3 ejes"
-              body="Cada cápsula es inspeccionada en empaquetado, forma y orden. El operario decide solo ante duda real."
-              foot="aprobación medida: 95 %"
+              body="Inspección óptica del 100% de la producción en tiempo real. Análisis de sellado, cuerpo y bandeja en milisegundos."
+              foot="Clasificación automática"
             />
             <BottomCard
-              tag="IMPACTO"
-              title="Resultado de planta"
-              body="+12 puntos de aprobación, 0 paradas de muestreo, trazabilidad por cápsula. Auditoría cerrada en minutos."
-              foot="ROI < 6 meses"
+              tag="TECNOLOGÍA"
+              title="Shippear by Vercel"
+              body="Desarrollado y desplegado en tiempo récord durante la hackathon de Rosario. Interfaz ultra veloz corriendo en el edge."
+              foot="MVP funcional"
             />
           </div>
         </Reveal>

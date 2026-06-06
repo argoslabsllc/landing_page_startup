@@ -8,6 +8,7 @@ function App() {
       <Header />
       <main id="main" tabIndex={-1}>
         <Hero />
+        <TrustedLogos />
         <MetricsMarquee />
         <ServicesGrid />
         <FlagshipService />

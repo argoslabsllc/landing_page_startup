@@ -1712,6 +1712,139 @@ a[href="https://unicorn.studio?utm_source=public-url"] {
   }
 }
 
+/* ---------- Trusted Logos ---------- */
+.trusted-logos {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-1);
+  position: relative;
+  z-index: 10;
+}
+.trusted-logos__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.trusted-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+.logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.logo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  transition: all 0.25s ease;
+  opacity: 0.55;
+}
+.logo-item:hover {
+  color: var(--text);
+  opacity: 1;
+}
+.partner-logo {
+  height: 20px;
+  width: auto;
+  fill: currentColor;
+}
+.partner-logo.lv {
+  height: 28px;
+  filter: grayscale(1) brightness(1.6);
+  opacity: 0.8;
+  transition: all 0.25s ease;
+}
+.logo-item:hover .partner-logo.lv {
+  filter: none;
+  opacity: 1;
+}
+.logo-label {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  color: var(--text-2);
+}
+
+/* ---------- B2B Consultation Form ---------- */
+.b2b-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  text-align: left;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-group label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--bg-1);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  transition: border-color 0.25s, box-shadow 0.25s, background-color 0.25s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  background-color: var(--bg);
+  box-shadow: 0 0 0 3px rgba(206,32,60,0.12);
+}
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238a8a95'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+.form-group textarea {
+  resize: vertical;
+}
+.lead-terminal {
+  box-shadow: 0 12px 48px rgba(0,0,0,0.45);
+}
+.log-line {
+  line-height: 1.6;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+@keyframes appear {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ============================================================
    Reduced motion — respect user preference (WCAG 2.3.3)
 ============================================================ */
